@@ -1,2 +1,2 @@
 # Python_algorithm_study
-New python study(Closed)..
+New python study(Closed)...
