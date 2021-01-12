@@ -1,2 +1,3 @@
-# Python_algorithm_study
-New python study(Closed)...............
+# KHU Deep learning Study
+----------------------------------------------------
+Index for this Study
