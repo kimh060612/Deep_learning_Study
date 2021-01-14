@@ -4,7 +4,6 @@ import tensorflow as tf
 import numpy as np
 
 mnist = keras.datasets.mnist
-class_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 (train_img, train_labels), (test_img, test_labels) = mnist.load_data()
 
