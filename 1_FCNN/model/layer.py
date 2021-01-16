@@ -6,6 +6,7 @@ class WeightSum(keras.layers.Layer):
         super().__init__(trainable=trainable, name=name, dtype=dtype, dynamic=dynamic, **kwargs)
         # tf.Variable을 활용하는 예시
         w_init = tf.random_normal_initializer()
+        # 1. 학습 시킬 행렬을 직접 정의함.
         self.Weight = tf.Variable(
             initial_value = w_init(shape=(input_dim, units), dtype="float32"),
             trainable = True
@@ -32,7 +33,7 @@ class WeightSumBuild(keras.layers.Layer):
         self.units = _units
     
     def build(self, input_dim):
-
+        # (60000, 784)
         self.Weight = self.add_weight(
             shape=(input_dim[-1], self.units),
             initializer = "random_normal",
@@ -47,4 +48,6 @@ class WeightSumBuild(keras.layers.Layer):
     
     def call(self, Input):
         return tf.matmul(Input, self.Weight) + self.Bias
-    
+
+# 784
+# 1024*540 480*240 1920*1080 ....... ==> (416 * 416)
