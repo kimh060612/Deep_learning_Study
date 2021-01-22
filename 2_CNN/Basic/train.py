@@ -25,6 +25,9 @@ train_img, test_img = train_img.reshape([-1, 28, 28, 1]), test_img.reshape([-1, 
 train_img = train_img.astype(np.float32) / 255.
 test_img = test_img.astype(np.float32) / 255.
 
+print (train_labels.shape)
+print (test_labels.shape)
+
 CNN_model = ConvModel()
 CNN_model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=[keras.metrics.SparseCategoricalAccuracy()])
 # 모델을 학습시키는 부분.
