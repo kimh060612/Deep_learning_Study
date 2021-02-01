@@ -22,6 +22,7 @@ class ConvModel(keras.Model):
         X = tf.nn.max_pool2d(X, ksize=[1,2,2,1], strides=(1,1,1,1), padding="VALID")
         X = self.Conv3(X)
         X = tf.nn.relu(X)
+        # X가 4차원 tensor
         X = keras.layers.Flatten()(X)
         X = self.Dense1(X)
         X = tf.nn.relu(X)

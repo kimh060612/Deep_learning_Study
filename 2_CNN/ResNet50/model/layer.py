@@ -35,7 +35,7 @@ class ResidualConvBlock(tfk.layers.Layer):
         Z = self.conv3(Z)
         Z = self.Batch3(Z)
         Z = self.LeakyReLU3(Z)
-        return Z + Skip
+        return Z + Skip 
 
 
 class ResidualIdentityBlock(tfk.layers.Layer):
@@ -63,4 +63,5 @@ class ResidualIdentityBlock(tfk.layers.Layer):
         Z = self.conv3(Z)
         Z = self.Batch3(Z)
         Z = self.LeakyReLU3(Z)
+        # Z : 256
         return Z + Skip

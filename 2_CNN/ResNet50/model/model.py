@@ -5,14 +5,14 @@ import tensorflow as tf
 class ResNet50(keras.Model):
     def __init__(self):
         super().__init__()
-
+        # Input Shape 224*224*3
         # Conv 1 Block
         self.ZeroPadding1 = keras.layers.ZeroPadding2D(padding=(3,3))
         self.Conv1 = keras.layers.Conv2D(filters = 64, kernel_size=(7, 7), strides=(2, 2))
         self.Batch1 = keras.layers.BatchNormalization()
         self.ReLU1 = keras.layers.LeakyReLU()
         self.ZeroPadding2 = keras.layers.ZeroPadding2D(padding=(1,1))
-    
+
         self.MaxPool1 = keras.layers.MaxPool2D(pool_size=(3, 3), strides=2)
         self.ResConvBlock1 = ResidualConvBlock(64, 256, strides = (1, 1))
         self.ResIdentityBlock1 = ResidualIdentityBlock(64, 256)
@@ -33,7 +33,7 @@ class ResNet50(keras.Model):
         self.ResConvBlock4 = ResidualConvBlock(512, 2048, strides = (1, 1))
         self.ResIdentityBlock11 = ResidualIdentityBlock(512, 2048)
         self.ResIdentityBlock12 = ResidualIdentityBlock(512, 2048)
-
+        
         self.GAP = keras.layers.GlobalAveragePooling2D()
         self.DenseOut = keras.layers.Dense(1000, activation='softmax')
 
