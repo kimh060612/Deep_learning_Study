@@ -4,7 +4,8 @@ import tensorflow as tf
 class AlexNet(keras.Model):
     def __init__(self):
         super().__init__()
-        self.Conv1 = keras.layers.Conv2D(96, (3,3), strides=(4, 4), padding="SAME", activation="relu")
+        # 원래 여기에는 커널 사이즈로 (11, 11)이 들어가고 padding은 valid이다. 하지만 메모리 때문에 돌아가지 않는 관계로 이미지 크기를 줄아느라 부득이하게 모델을 조금 변경했다.
+        self.Conv1 = keras.layers.Conv2D(96, (3, 3), strides=(4, 4), padding="SAME", activation="relu")
         # LRN 1
         self.BatchNorm1 = keras.layers.BatchNormalization()
         self.MaxPool1 = keras.layers.MaxPool2D(pool_size=(2, 2), strides=(1, 1), padding="VALID")

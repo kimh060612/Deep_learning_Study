@@ -1,4 +1,4 @@
-from layer import ResidualConvBlock, ResidualIdentityBlock
+from model.layer import ResidualConvBlock, ResidualIdentityBlock
 from tensorflow import keras
 import tensorflow as tf
 
