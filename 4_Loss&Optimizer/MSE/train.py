@@ -1,4 +1,4 @@
-from loss import CustomMSE
+from loss import CustomMSE, CustomRegularizer
 from tensorflow import keras
 import tensorflow as tf
 import numpy as np
@@ -16,8 +16,8 @@ if gpus:
     print(e)
 
 def get_model(Input):
-    X = keras.layers.Dense(10, activation='relu')(Input)
-    X = keras.layers.Dense(5, activation='relu')(X)
+    X = keras.layers.Dense(10, activation='relu', kernel_regularizer=CustomRegularizer(0.1))(Input)
+    X = keras.layers.Dense(5, activation='relu', kernel_regularizer=CustomRegularizer(0.1))(X)
     Out = keras.layers.Dense(1, activation='linear')(X)
     return Out
 
@@ -35,4 +35,4 @@ output = get_model(inputs)
 model = keras.models.Model(inputs = inputs, outputs = output)
 model.compile(Opt, loss=Loss, metrics=["mse"])
 
-model.fit(x, y, epochs=10)
+model.fit(x, y, epochs=50)
