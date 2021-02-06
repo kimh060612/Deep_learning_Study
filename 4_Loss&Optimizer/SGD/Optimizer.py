@@ -1,6 +1,7 @@
 from tensorflow import keras
 import tensorflow as tf
 
+# 별로 안 중요함. ==> 너네들이 만질 일이 거의 없음.
 class CustomSGDOptimizer(keras.optimizers.Optimizer):
     def __init__(self, learning_rate = 0.001, name = "CustomSGDOptimizer", **kwargs):
         super().__init__(name, **kwargs)
