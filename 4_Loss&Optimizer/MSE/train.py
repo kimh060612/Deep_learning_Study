@@ -15,6 +15,7 @@ if gpus:
     # Memory growth must be set before GPUs have been initialized
     print(e)
 
+# Funtional API
 def get_model(Input):
     X = keras.layers.Dense(10, activation='relu', kernel_regularizer=CustomRegularizer(0.1))(Input)
     X = keras.layers.Dense(5, activation='relu', kernel_regularizer=CustomRegularizer(0.1))(X)
