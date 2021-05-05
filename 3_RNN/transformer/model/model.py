@@ -20,7 +20,7 @@ class Attention(keras.Model):
 
 class MultiHeadAttention(keras.Model):
     def __init__(self):
-        super(SelfAttention, self).__init__()
+        super(MultiHeadAttention, self).__init__()
 
         pass
 
