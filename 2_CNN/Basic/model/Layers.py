@@ -64,7 +64,7 @@ class CustomConv2D(keras.layers.Layer):
 # 1. 생성자
 #   얘는 그냥 정의.
 # 2. build
-#   call이 실행되기 전에 무조건 호출되는 함수
+#   call이 실행되기 전에 모델 빌드시에 호출되는 함수
 # 3. call
 #   Model의 Feed Forward (신경망에 입력을 넣어서 출력을 뽑아내는 과정)를 담당하는 함수
 # 이미지 => 딥러닝 층층이 쌓여져 있음 => 출력 앞으로 먹임. Feed Forward
@@ -83,7 +83,7 @@ class WeightSumBuild(keras.layers.Layer):
         )
 
         self.Bias = self.add_weight(
-            shape = (self.units,),
+            shape = (s.elf.units,),
             initializer = "random_normal",
             trainable = True
         )
