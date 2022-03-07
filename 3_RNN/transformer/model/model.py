@@ -2,26 +2,26 @@ import tensorflow as tf
 import numpy as np
 from tensorflow import keras
 
-class PositionalEncoding(keras.Model):
-    def __init__(self):
-        super(PositionalEncoding, self).__init__()
     
-    def call(self, inputs):
-        
-        pass
-
-class Attention(keras.Model):
+class Encoder(keras.Model):
     def __init__(self):
-        super(Attention, self).__init__()
+        super(Encoder, self).__init__()
         pass
 
     def call(self, inputs):
         pass
-
-class MultiHeadAttention(keras.Model):
+    
+class Decoder(keras.Model):
     def __init__(self):
-        super(MultiHeadAttention, self).__init__()
+        super(Decoder, self).__init__()
+        pass
 
+    def call(self, inputs):
+        pass
+    
+class Transformer(keras.Model):
+    def __init__(self):
+        super(Transformer, self).__init__()
         pass
 
     def call(self, inputs):
