@@ -26,8 +26,14 @@ class Decoder(keras.Model):
         return self.dense(x), h, c
 
 class Seq2Seq(keras.Model):
-    def __init__(self):
+    def __init__(self, word_num):
         super().__init__()
+        
+        self.encoder = Encoder(word_num)
+        self.decoder = Decoder(word_num)
+        
+        
+        
         
     def call(self, x):
         pass
