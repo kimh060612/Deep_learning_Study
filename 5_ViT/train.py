@@ -59,4 +59,4 @@ model.fit(
 )
 if not os.path.exists("./ViT"):
     os.mkdir("./ViT")
-model.save_weights(os.path.join('./ViT', "vit"), save_format="tf")
+model.save(os.path.join('./ViT', "ViT"))
