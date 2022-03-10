@@ -16,7 +16,7 @@ lr=1e-3
 WEIGHT_DECAY=1e-4
 BATCH_SIZE=64
 D_MODEL=64
-epochs=10
+epochs=1
 
 #Load the dataset
 ds = tfds.load("cifar10", as_supervised=True)
@@ -51,15 +51,12 @@ early_stop = keras.callbacks.EarlyStopping(patience=10)
 
 model.compile(loss=loss, optimizer=optimizer, metrics=["accuracy"])
 
-mcp = keras.callbacks.ModelCheckpoint(filepath='weights/best.h5', 
-                                         save_best_only=True, 
-                                         monitor='val_loss', 
-                                         mode='min')
-
 model.fit(
     ds_train,
     validation_data=ds_test,
     epochs=epochs,
-    callbacks=[early_stop, mcp],
+    callbacks=[early_stop],
 )
-model.save_weights(os.path.join('.', "vit"))
+if not os.path.exists("./ViT"):
+    os.mkdir("./ViT")
+model.save_weights(os.path.join('./ViT', "vit"), save_format="tf")
