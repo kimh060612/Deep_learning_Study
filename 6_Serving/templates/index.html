@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael's DL</title>
+</head>
+<body>
+    <p>Upload Your Image</p>
+    
+    <form id="upload" action="/predict" method="POST" enctype="multipart/form-data">
+        <button class="btn">Upload</button>
+        <input type="file" value="Upload" name="image">
+
+        <br>
+
+        <p>Result</p>
+        {% if label %}
+            <span class="result">
+                {{ label }}
+            </span>
+        {% endif %}
+    </form>
+
+</body>
+</html>

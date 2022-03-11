@@ -57,6 +57,7 @@ model.fit(
     epochs=epochs,
     callbacks=[early_stop],
 )
-if not os.path.exists("./ViT"):
-    os.mkdir("./ViT")
-model.save_weights(os.path.join('./ViT', "vit"), save_format="tf")
+
+if not os.path.exists("./ViT/1"):
+    os.mkdir("./ViT/1")
+keras.models.save_model(model, "./ViT/1/")  

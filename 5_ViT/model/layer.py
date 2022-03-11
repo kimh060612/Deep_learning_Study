@@ -17,8 +17,8 @@ class GeneratePatch(keras.layers.Layer):
         return patches
 
 class MultiHeadAttention(keras.layers.Layer):
-    def __init__(self, d_model, num_head):
-        super(MultiHeadAttention, self).__init__()        
+    def __init__(self, d_model, num_head, name="mha"):
+        super(MultiHeadAttention, self).__init__(name=name)        
         if not d_model % num_head  == 0:
             raise ValueError("Invalid head and d_model!")
         self.d_k = d_model // num_head
@@ -64,12 +64,12 @@ class MultiHeadAttention(keras.layers.Layer):
         return output
 
 class Encoder(keras.layers.Layer):
-    def __init__(self, d_model, num_head, d_ff, drop_out_prob = 0.2):
-        super(Encoder, self).__init__()
+    def __init__(self, d_model, num_head, d_ff, drop_out_prob = 0.2, name="Encoder"):
+        super(Encoder, self).__init__(name=name)
         self.d_model = d_model
         self.num_head = num_head
-        
-        self.MultiHeadAttention = MultiHeadAttention(d_model=d_model, num_head=num_head)
+        num_model = name.split('_')[1]
+        self.MultiHeadAttention = MultiHeadAttention(d_model=d_model, num_head=num_head, name="mha_" + num_model)
         
         self.dense_1 = keras.layers.Dense(d_ff, activation="relu")
         self.dense_2 = keras.layers.Dense(d_model, activation="relu")

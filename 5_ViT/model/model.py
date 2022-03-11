@@ -14,7 +14,7 @@ class ViT(keras.Model):
         self.patch_gen = GeneratePatch(patch_size=patch_size)
         self.linear_proj = keras.layers.Dense(d_model, activation="relu")
         
-        self.encoders = [ Encoder(d_model=d_model, num_head=num_haed, d_ff=d_ff, drop_out_prob=drop_out_prob) for _ in range(num_layer) ]
+        self.encoders = [ Encoder(d_model=d_model, num_head=num_haed, d_ff=d_ff, drop_out_prob=drop_out_prob, name = "Encoder_" + str(i + 1)) for i in range(num_layer) ]
         
         self.dense_mlp = keras.layers.Dense(mlp_dim, activation="relu")
         self.dropout = keras.layers.Dropout(drop_out_prob)
