@@ -83,7 +83,7 @@ class WeightSumBuild(keras.layers.Layer):
         )
 
         self.Bias = self.add_weight(
-            shape = (s.elf.units,),
+            shape = (self.units,),
             initializer = "random_normal",
             trainable = True
         )
